@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/listePokemons/{number}', 'listePokemonsController@getlistePokemons');
+Route::get('/listePokemons/{number}', 'listePokemonsController@getListePokemons');
