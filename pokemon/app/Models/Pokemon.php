@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Energy extends Model
+class Pokemon extends Model
 {
-    protected $table = 'energy';
+    protected $table = 'pokemon';
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $connection = 'mysql';
+    
     use HasFactory;
 }

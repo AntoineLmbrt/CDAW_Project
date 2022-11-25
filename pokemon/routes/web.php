@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/listePokemons/{number}', 'listePokemonsController@getListePokemons');
+Route::get('/listePokemons', 'App\Http\Controllers\listePokemonsController@getListePokemons');
