@@ -15,14 +15,12 @@ class EnergySeeder extends Seeder
      */
     public function run()
     {
-        $number = 20;
-        $limit = "?limit=".$number;
-        $URL = "https://pokeapi.co/api/v2/type/";
-        $energies = json_decode(file_get_contents($URL.$limit))->results;
-        foreach($energies as $energy) {
-            DB::table('energy')->insert([
-                'name' => $energy->name
-            ]);
-        }
+        // //Etape 1
+        // DB::table('energy')->insert([
+        //      'name' => Str::random(10)
+        //     ]);
+
+       // Etape 2
+        \App\Models\Energy::factory(10)->create();
     }
 }

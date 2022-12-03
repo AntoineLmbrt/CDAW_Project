@@ -7,9 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Energy extends Model
 {
-    protected $table = 'energy';
-    protected $primaryKey = 'id';
-    public $incrementing = true;
-    protected $connection = 'mysql';
     use HasFactory;
 }
