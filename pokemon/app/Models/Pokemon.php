@@ -11,6 +11,10 @@ class Pokemon extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $connection = 'mysql';
+
+    public function energy() {
+        return $this->belongsTo(Energy::class, 'energy_id');
+    }
     
     use HasFactory;
 }

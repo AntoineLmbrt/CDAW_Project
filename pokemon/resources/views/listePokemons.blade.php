@@ -9,12 +9,12 @@
     <table id="pokemons" class="display">
         <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>energy</th>
-                <th>pv_max</th>
-                <th>level</th>
-                <th>image</th>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>ENERGY</th>
+                <th>HEALTH</th>
+                <th>LEVEL</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$pokemon->id}}</td>
                     <td>{{$pokemon->name}}</td>
-                    <td>{{$pokemon->energy}}</td>
+                    <td>{{$pokemon->energy->name}}</td>
                     <td>{{$pokemon->pv_max}}</td>
                     <td>{{$pokemon->level}}</td>
                     <td><img src = "{{$pokemon->path}}"></td>
@@ -30,7 +30,7 @@
             @endforeach
         </tbody>
 
-    </table>;
+    </table>
 
 @endsection
 

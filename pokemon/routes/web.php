@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/listePokemons', 'App\Http\Controllers\listePokemonsController@getListePokemons');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
