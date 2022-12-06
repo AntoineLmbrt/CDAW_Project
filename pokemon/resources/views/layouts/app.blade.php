@@ -20,6 +20,7 @@
         @include('components.navbar')
         @yield('template')
         <h1 style="color: azure">Hello World</h1>
+        @include('components.footer')
     </body>
     @yield('script')
 
