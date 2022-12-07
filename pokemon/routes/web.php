@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\homeController@getHome');
 
 Route::get('/listePokemons', 'App\Http\Controllers\listePokemonsController@getListePokemons');
 
