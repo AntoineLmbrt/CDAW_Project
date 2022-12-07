@@ -15,10 +15,10 @@ class EnergySeeder extends Seeder
      */
     public function run()
     {
-        // //Etape 1
-        // DB::table('energy')->insert([
-        //      'name' => Str::random(10)
-        //     ]);
+        //Etape 1
+        DB::table('energy')->insert([
+             'name' => Str::random(15)
+            ]);
 
        // Etape 2
         \App\Models\Energy::factory(10)->create();

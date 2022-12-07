@@ -6,7 +6,7 @@
     <div class="card border-white">
       <div class="card-body">
         <img class="navbar-brand" src="images/Pokemon-Logo.png" width="150" height="93"/>
-        <h6 class="card-title">Vous pouvez collecter votre collection préferée de Pokemons et jouer vous amis</h6>
+        <h6 class="card-title">Vous pouvez collecter votre collection préferée de Pokemons et jouer avec voscomposer require barryvdh/laravel-debugbar amis</h6>
         
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
