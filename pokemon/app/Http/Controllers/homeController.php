@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pokemon;
 
 class homeController extends Controller
 {
     public function getHome() {
-        return view('home');
+        $pokemons = Pokemon::with('energy')->get();
+        return view('home', ['pokemons'=>$pokemons]);
     }
 }

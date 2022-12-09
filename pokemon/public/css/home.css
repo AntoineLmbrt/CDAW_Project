@@ -1,0 +1,10 @@
+.block {
+    background-color: #f2f2f2;
+    margin: 1% 0;
+    padding: 1%;
+}
+
+.swiper-slide {
+    text-align: center;
+    padding: 3%;
+}
