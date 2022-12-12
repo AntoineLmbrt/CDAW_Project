@@ -13,6 +13,7 @@ class MaitriseTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('maitrise', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');

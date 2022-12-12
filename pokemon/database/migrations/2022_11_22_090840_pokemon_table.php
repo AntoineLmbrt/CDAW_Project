@@ -13,6 +13,7 @@ class PokemonTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
             $table->foreignId('energy_id')->references('id')->on('energy');

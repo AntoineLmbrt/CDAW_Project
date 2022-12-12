@@ -13,6 +13,7 @@ class AttackTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('attaque', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pokemon_id')->references('id')->on('pokemon');

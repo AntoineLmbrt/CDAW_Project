@@ -13,6 +13,7 @@ class DefenseTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('defense', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pokemon_id')->references('id')->on('pokemon');

@@ -13,6 +13,7 @@ class CombatTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('combat', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jouer_id')->references('id')->on('jouer'); // Cela est ID du table jouer 
