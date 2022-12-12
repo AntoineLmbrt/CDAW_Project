@@ -22,10 +22,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        @include('navbar')
-        @yield('content')
-        <h1>TEST</h1>
-        @include('footer')
+        <div>
+            @include('navbar')
+        </div>
+        <div class='content'>
+            @yield('content')
+        </div>
+        <div>
+            @include('footer')
+        </div>
     </body>
     @yield('script')
 </html>

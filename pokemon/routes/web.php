@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\homeController@getHome');
 
-Route::get('/listePokemons', 'App\Http\Controllers\listePokemonsController@getListePokemons');
+Route::get('/pokedex', 'App\Http\Controllers\pokedexController@getPokedex');
 
 Route::middleware([
     'auth:sanctum',

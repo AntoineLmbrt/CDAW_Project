@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pokemon;
 
-class homeController extends Controller
+class pokedexController extends Controller
 {
-    public function getHome() {
+    public function getPokedex() {
         $pokemons = Pokemon::with('energy')->get();
-        return view('home', ['pokemons'=>$pokemons]);
+        return view('pokedex', ['pokemons'=>$pokemons]);
     }
 }
