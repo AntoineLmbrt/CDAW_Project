@@ -27,6 +27,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        // J'ai ajouté ces 2 lignes pour pouvoir ajouter le niveau et le nombre de combats
+        'niveau',
+        'nombre_de_combats',
     ];
 
     /**

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('style')
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
@@ -13,7 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>ENERGY</th>
+                    
                     <th>HEALTH</th>
                     <th>LEVEL</th>
                     <th></th>
@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{$pokemon->id}}</td>
                         <td>{{$pokemon->name}}</td>
-                        <td>{{$pokemon->energy->name}}</td>
+                        
                         <td>{{$pokemon->pv_max}}</td>
                         <td>{{$pokemon->level}}</td>
                         <td><img src = "{{$pokemon->path}}"></td>

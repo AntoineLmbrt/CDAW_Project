@@ -18,9 +18,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->foreignId('jouer_id')->references('id')->on('jouer');
+            //$table->foreignId('jouer_id')->references('id')->on('jouer');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->bigInteger('niveau')->default(1);
+            $table->bigInteger('nombre_de_combats')->default(0);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
