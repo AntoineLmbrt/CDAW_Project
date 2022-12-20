@@ -61,4 +61,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function pokemons() {
+        return $this->belongsToMany(Pokemon::class);
+    }
+
+    public function combats() {
+        return $this->belongsToMany(Combat::class);
+    }
+    
 }

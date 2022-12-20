@@ -14,7 +14,7 @@ class ContenirTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('centenir', function (Blueprint $table) {
+        Schema::create('combat_tour', function (Blueprint $table) {
             $table->id();
             $table->foreignId('combat_id')->references('id')->on('combat');
             $table->foreignId('tour_id')->references('id')->on('tour');

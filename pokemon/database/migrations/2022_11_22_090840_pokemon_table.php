@@ -14,10 +14,16 @@ class PokemonTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('pokemon', function (Blueprint $table) {
+        Schema::create('pokemons', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('energy_id')->references('id')->on('energy');
-            // $table->foreignId('jouer_id')->references('id')->on('jouer');
+            
+            $table->unsignedBigInteger('energy_id');
+            $table->foreign('energy_id')
+                ->references('id')
+                ->on('energies')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
             $table->string('name');
             $table->integer('pv_max');
             $table->integer('level');
@@ -33,6 +39,6 @@ class PokemonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pokemon');
+        Schema::dropIfExists('pokemons');
     }
 }

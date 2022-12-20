@@ -14,9 +14,9 @@ class TourTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('tour', function (Blueprint $table) {
+        Schema::create('tours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contenir_id')->references('id')->on('contenir');
+            $table->bigInteger('tour');
             
             $table->timestamps();
         });

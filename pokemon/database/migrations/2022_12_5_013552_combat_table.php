@@ -14,9 +14,8 @@ class CombatTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('combat', function (Blueprint $table) {
+        Schema::create('combats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jouer_id')->references('id')->on('jouer'); // Cela est ID du table jouer 
             $table->dateTimeTz('date', $precision = 0);
             $table->enum('mode', ['aléatoire', 'manuel + tour par tour', 'aléatoire + tour par tour']);
             
@@ -31,6 +30,6 @@ class CombatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('combat');
+        Schema::dropIfExists('combats');
     }
 }

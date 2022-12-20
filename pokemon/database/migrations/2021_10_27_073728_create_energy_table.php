@@ -13,7 +13,7 @@ class CreateEnergyTable extends Migration
      */
     public function up()
     {
-        Schema::create('energy', function (Blueprint $table) {
+        Schema::create('energies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateEnergyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('energy');
+        Schema::dropIfExists('energies');
     }
 }

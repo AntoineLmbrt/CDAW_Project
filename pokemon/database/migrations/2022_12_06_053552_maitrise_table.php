@@ -14,11 +14,23 @@ class MaitriseTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('maitrise', function (Blueprint $table) {
+        Schema::create('energy_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('energie_id')->references('id')->on('users');
             
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('energie_id')->references('id')->on('users');
+            $table->unsignedBigInteger('energy_id');
+            $table->foreign('energy_id')
+                ->references('id')
+                ->on('energies')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
@@ -30,6 +42,6 @@ class MaitriseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maitrise');
+        Schema::dropIfExists('energy_user');
     }
 }

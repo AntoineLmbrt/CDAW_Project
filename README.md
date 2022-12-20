@@ -20,6 +20,7 @@ php artisan migrate
 '''
 - Run the seeders
 '''bash
+php artisan db:seed --class=EnergySeeder
 php artisan db:seed --class=PokemonSeeder
 '''
 - Install the dependencies with npm

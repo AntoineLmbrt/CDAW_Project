@@ -14,11 +14,29 @@ class JouerTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('jouer', function (Blueprint $table) {
+        Schema::create('combat_pokemon_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('combat_id')->references('id')->on('combat');
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('pokemon_id')->references('id')->on('pokemon');
+        
+            $table->unsignedBigInteger('combat_id');
+            $table->foreign('combat_id')
+                ->references('id')
+                ->on('combat')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
+            $table->unsignedBigInteger('pokemon_id');
+            $table->foreign('pokemon_id')
+                ->references('id')
+                ->on('pokemon')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             
             $table->timestamps();
         });
@@ -31,6 +49,6 @@ class JouerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jouer');
+        Schema::dropIfExists('combat_pokemon_user');
     }
 }

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            //$table->foreignId('jouer_id')->references('id')->on('jouer');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('niveau')->default(1);

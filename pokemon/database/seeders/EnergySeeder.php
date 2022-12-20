@@ -20,7 +20,7 @@ class EnergySeeder extends Seeder
         $URL = "https://pokeapi.co/api/v2/type/";
         $energies = json_decode(file_get_contents($URL.$limit))->results;
         foreach($energies as $energy) {
-            DB::table('energy')->insert([
+            DB::table('energies')->insert([
                 'name' => $energy->name
             ]);
         }
