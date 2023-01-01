@@ -1,14 +1,22 @@
 @extends('layouts.app2')
 
 @section('style')
-
+    <style>
+        .pokemon-logo {
+            width: 150px;
+        }
+        .pokemon-logo {
+            height: 93px;
+        }
+    </style>
 @endsection
 @section('content')
     <x-guest-layout>
         <x-auth-card>
             <x-slot name="logo">
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <img class="pokemon-logo fill-current" src="assets/img/logo/logo.png"/>
+                    
                 </a>
             </x-slot>
 

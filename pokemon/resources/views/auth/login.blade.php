@@ -1,11 +1,22 @@
 @extends('layouts.app2')
 
+@section('style')
+    <style>
+        .pokemon-logo {
+            width: 150px;
+        }
+        .pokemon-logo {
+            height: 93px;
+        }
+    </style>
+@endsection
+
 @section('content')
     <x-guest-layout>
         <x-auth-card>
             <x-slot name="logo">
                 <a href="/">
-                    <img class="w-150 h-93 fill-current" src="assets/img/logo/logo.png"/>
+                    <img class="pokemon-logo fill-current" src="assets/img/logo/logo.png"/>
                     
                 </a>
             </x-slot>
@@ -28,7 +39,7 @@
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-label for="password" :value="__('Password')" />
+                    <x-label for="password" :value="__('Mot de passe')" />
 
                     <x-input id="password" class="block mt-1 w-full"
                                     type="password"
@@ -40,19 +51,24 @@
                 <div class="block mt-4">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        <span class="ml-2 text-sm text-gray-600">{{ __('Sevenez de Moi!') }}</span>
                     </label>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('register'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                            {{ __('Pas encore de compte?') }}
+                        </a>
+                    @endif
                     @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
+                            {{ __("Mot de passe oublié?") }}
                         </a>
                     @endif
 
-                    <x-button class="ml-3">
-                        {{ __('Log in') }}
+                    <x-button class="ml-4">
+                        {{ __('Se Connecter') }}
                     </x-button>
                 </div>
             </form>

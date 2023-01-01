@@ -1,7 +1,14 @@
 @extends('layouts.app2')
 
 @section('style')
-
+    <style>
+        .pokemon-logo {
+            width: 150px;
+        }
+        .pokemon-logo {
+            height: 93px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -9,7 +16,10 @@
     <x-guest-layout>
         <x-jet-authentication-card>
             <x-slot name="logo">
-                <x-jet-authentication-card-logo />
+                <a href="/">
+                    <img class="pokemon-logo fill-current" src="assets/img/logo/logo.png"/>
+                    
+                </a>
             </x-slot>
 
             <div x-data="{ recovery: false }">

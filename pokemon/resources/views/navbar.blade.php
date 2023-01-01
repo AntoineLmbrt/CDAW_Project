@@ -12,7 +12,7 @@
                 <a class="nav-link" href="pokedex">Pokedex</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">Combat</a>
+                <a class="nav-link" href="/combat">Combat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Contact</a>

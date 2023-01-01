@@ -11,7 +11,7 @@
    <div class="swiper-wrapper">
       @foreach($pokemons as $pokemon)
          <div class="swiper-slide">
-               <img src="{{$pokemon->path}}">
+               <img src="{{$pokemon->image}}">
                <span>{{$pokemon->name}}</span>
          </div>
       @endforeach

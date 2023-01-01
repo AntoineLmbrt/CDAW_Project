@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\EnergyUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -33,19 +36,34 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        $formfields = $request->validate([
+            'name' => ['required','min:3'],
+            'email' => ['required','email', Rule::unique('users','email')],
+            'password' => 'required|confirmed|min:6'
+         ]);
+ 
+         $formfields['password'] = bcrypt($formfields['password']);
+         $formfields['level'] = 1 ;
+         $pokemons = [];
+         while (count($pokemons) < 3) {
+             $energy = DB::table('energies')
+                 ->inRandomOrder()
+                 ->first();
+ 
+             $pokemons = DB::table('pokemons')
+                 ->where('level', '=', 1)
+                 ->where('energy_id', '=', $energy->id)
+                 ->get();
+         }
+ 
+         $user = User::create($formfields);
+         EnergyUser::create([
+             'user_id' => $user->id,
+             'energy_id' => $energy->id,
+         ]);
+ 
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
+        //event(new Registered($user));
 
         Auth::login($user);
 

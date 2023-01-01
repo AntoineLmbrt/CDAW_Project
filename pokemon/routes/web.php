@@ -27,4 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//Combat route
+Route::get('/combat', [\App\Http\Controllers\CombatController::class, 'index'])->middleware('auth');
+
 require __DIR__.'/auth.php';
