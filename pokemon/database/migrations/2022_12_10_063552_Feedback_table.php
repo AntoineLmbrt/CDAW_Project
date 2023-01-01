@@ -13,11 +13,28 @@ class FeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedbacks', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+        Schema::create('combat_pokemons', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('message');
-            
+            $table->bigInteger('combat_id')->unsigned();
+            $table->bigInteger('pokemon_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('pokemon_id')
+                ->references('id')
+                ->on('pokemons')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('combat_id')
+                ->references('id')
+                ->on('combats')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+//            $table->integer('health');
             $table->timestamps();
         });
     }
@@ -29,6 +46,6 @@ class FeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tour');
+        Schema::dropIfExists('combat_pokemons');
     }
 }

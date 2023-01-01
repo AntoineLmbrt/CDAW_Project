@@ -14,11 +14,20 @@ class ContenirTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('combat_tour', function (Blueprint $table) {
+        Schema::create('combat_users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('combat_id')->references('id')->on('combat');
-            $table->foreignId('tour_id')->references('id')->on('tour');
-            
+            $table->bigInteger('combat_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('combat_id')
+                ->references('id')
+                ->on('combats')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +39,6 @@ class ContenirTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contenir');
+        Schema::dropIfExists('combat_users');
     }
 }

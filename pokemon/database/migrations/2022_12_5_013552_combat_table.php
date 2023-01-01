@@ -16,8 +16,13 @@ class CombatTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('combats', function (Blueprint $table) {
             $table->id();
-            $table->dateTimeTz('date', $precision = 0);
-            $table->enum('mode', ['aléatoire', 'manuel + tour par tour', 'aléatoire + tour par tour']);
+            $table->integer('mode');
+//            $table->dateTime('date');
+            $table->string('status');
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             
             $table->timestamps();
         });

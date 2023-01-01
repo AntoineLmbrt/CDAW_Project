@@ -12,22 +12,20 @@ class PokemonTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::disableForeignKeyConstraints();
+    {   
         Schema::create('pokemons', function (Blueprint $table) {
             $table->id();
-            
-            $table->unsignedBigInteger('energy_id');
-            $table->foreign('energy_id')
-                ->references('id')
-                ->on('energies')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-
             $table->string('name');
-            $table->integer('pv_max');
+            $table->foreignId('energy_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->integer('level');
-            $table->string('path');
+            $table->integer('hp');
+            $table->integer('attack');
+            $table->integer('special_defense');
+            $table->integer('special_attack');
+            $table->string('image');
             $table->timestamps();
         });
     }
