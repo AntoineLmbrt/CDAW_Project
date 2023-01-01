@@ -1,4 +1,6 @@
-@extends('layouts.app2')
+@extends('layouts.app')
+
+@section('title', 'Bestaire')
 
 @section('style')
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
@@ -7,7 +9,7 @@
 
 @section('content')
     <h1>POKEDEX</h1>
-    <div id="datatable">
+    <div id="datatable" style="margin-left: 3.35%;margin-right: 3.35%;">
         <table id="pokedex" class="display">
             <thead>
                 <tr>
@@ -27,7 +29,7 @@
                         <td>{{$pokemon->energy->name}}</td>
                         <td>{{$pokemon->hp}}</td>
                         <td>{{$pokemon->level}}</td>
-                        <td><img src = "{{$pokemon->image}}"></td>
+                        <td><img style="height: 200px; width: 200px;" src = "{{$pokemon->image}}"></td>
                     </tr>
                 @endforeach
             </tbody>

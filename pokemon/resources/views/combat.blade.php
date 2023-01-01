@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('style')
     <style>
@@ -67,13 +67,6 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <h5 class="title text-center text-md-start">Combat</h5>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12">
-                    <ul class="breadcrumb-list">
-                        <li class="item"><a href="index.html">Home</a></li>
-                        <li class="separator"><i class="feather-chevron-right"></i></li>
-                        <li class="item current">Combats</li>
-                    </ul>
                 </div>
             </div>
         </div>
