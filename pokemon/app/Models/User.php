@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -27,9 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        // J'ai ajouté ces 2 lignes pour pouvoir ajouter le niveau et le nombre de combats
-        'niveau',
-        'nombre_de_combats',
+        'level',
+        
     ];
 
     /**
@@ -62,12 +63,21 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function pokemons() {
-        return $this->belongsToMany(Pokemon::class);
+    public function energies()
+    {
+        return $this->belongsToMany(Energy::class, 'energy_users');
+    }
+    public function combats()
+    {
+        return $this->belongsToMany(Combat::class, 'combat_users');
+    }
+    public function combatsWon(): HasMany
+    {
+        return $this->hasMany(Combat::class,'user_id');
+    }
+    public function allPokemonsPlayed(): HasMany
+    {
+        return $this->hasMany(CombatPokemon::class,'user_id');
     }
 
-    public function combats() {
-        return $this->belongsToMany(Combat::class);
-    }
-    
 }

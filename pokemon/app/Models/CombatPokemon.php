@@ -6,27 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Combat extends Model
+class CombatPokemon extends Model
 {
     use HasFactory;
 
+    protected $table = 'combat_pokemons';
+
     protected $fillable = [
-        'mode',
+        'combat_id',
+        'pokemon_id',
         'user_id',
-        'date',
-        'status',
     ];
-
-    public function pokemons()
-    {
-        return $this->belongsToMany(Pokemon::class, 'combat_pokemons');
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'combat_users');
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
