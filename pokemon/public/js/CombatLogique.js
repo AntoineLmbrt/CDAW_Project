@@ -76,7 +76,7 @@ function chooseUser(userId, userName, energies, level = 1) {
     pokemons2 = pokemons.filter(pokemon => pokemon.level <= user2.level && user2.energies.some(energy => pokemon.energy.name === energy.name))
     userSelect.style.display = 'none';
     modeSelect.style.display = 'block';
-    headline.innerText = "Choose Your Mode"
+    headline.innerText = "Choix du mode de combat";
 }
 
 function chooseMode(idMode) {
@@ -219,10 +219,10 @@ function makeMove() {
         gameFinished.style.display = 'block';
 
         if (indexPokemon1 >= 3) {
-            headlineResult.innerText = `${user2.name} won the combat`;
+            headlineResult.innerText = `${user2.name} a gagné le combat`;
             saveCombat(user2.id)
         } else {
-            headlineResult.innerText = `${user.name} won the combat`;
+            headlineResult.innerText = `${user.name} a gagné le combat`;
             saveCombat(user.id)
         }
     }
@@ -246,10 +246,10 @@ function setupPokemonOnScreen(player, index) {
         headline.style.display = 'none';
         gameFinished.style.display = 'block';
         if (indexPokemon1 >= 3) {
-            headlineResult.innerText = `${user2.name} won the combat`;
+            headlineResult.innerText = `${user2.name} a gagné le combat`;
             saveCombat(user2.id)
         } else {
-            headlineResult.innerText = `${user.name} won the combat`;
+            headlineResult.innerText = `${user.name} a gagné le combat`;
             saveCombat(user.id)
         }
     }
@@ -264,10 +264,9 @@ function applyMove(player, moveNumber, movePoints) {
                 } else {
                     currentHealth2 -= movePoints - defenseBlock2;
                 }
-                // console.log(` Player 1 attacked with ${movePoints} Points`);
-                // console.log(` Player 2  ${defenseBlock2} Points of the attack`);
-                // console.log(` Player 2 hit with ${movePoints - defenseBlock2} Points \n `);
-                comment = ` ${user.name} attacked with ${movePoints} Points. ${user2.name} blocked ${defenseBlock2} Points of the attack `
+                
+                comment = ` ${user.name} attaque avec ${movePoints} Points. ${user2.name} bloque ${defenseBlock2} Points de l'attaque `
+                 
                 CommentBox.innerHTML = '';
                 i = 0;
                 typing();
@@ -283,7 +282,8 @@ function applyMove(player, moveNumber, movePoints) {
                 break;
             case 2:
                 defenseBlock1 = movePoints;
-                comment = `${user.name} chose special defense ability and will block the next attack with ${defenseBlock1} defense Points`
+                comment = `${user.name} choisit la defense spéciale et bloque ${defenseBlock1} points`
+                 
                 CommentBox.innerHTML = '';
                 i = 0;
                 typing();
@@ -294,7 +294,7 @@ function applyMove(player, moveNumber, movePoints) {
                 } else {
                     currentHealth2 -= movePoints - defenseBlock2;
                 }
-                comment = ` ${user.name} attacked with ${movePoints} Points. ${user2.name} blocked ${defenseBlock2} Points of the attack `
+                comment = ` ${user.name} attaque avec ${movePoints} points. ${user2.name} bloque ${defenseBlock2} points de l'attaque `
                 CommentBox.innerHTML = '';
                 i = 0;
                 typing();
@@ -316,10 +316,8 @@ function applyMove(player, moveNumber, movePoints) {
                 } else {
                     currentHealth1 -= movePoints - defenseBlock1;
                 }
-                // console.log(` Player 2 attacked with ${movePoints} Points`);
-                // console.log(` Player 1 blocked the attack with ${defenseBlock1} Points`);
-                // console.log(` Player 1 hit with ${movePoints - defenseBlock1} Points \n `);
-                comment = ` ${user2.name} attacked with ${movePoints} Points. ${user.name} blocked ${defenseBlock1} Points of the attack `
+                
+                comment = ` ${user2.name} attaque avec ${movePoints} points. ${user.name} bloque ${defenseBlock1} points de l'attaque `
                 CommentBox.innerHTML = '';
 
                 i = 0;
@@ -336,8 +334,7 @@ function applyMove(player, moveNumber, movePoints) {
                 break;
             case 2:
                 defenseBlock2 = movePoints;
-                // console.log(` Player 2 chose special defense ability and will block the next attack with ${defenseBlock2} defense Points`);
-                comment = `${user2.name} chose special defense ability and will block the next attack with ${defenseBlock2} defense Points`
+                comment = `${user2.name} choisis la défence speciale et va bloqué l'attaque suivant avec ${defenseBlock2} Points`
                 CommentBox.innerHTML = '';
                 i = 0;
                 typing();
@@ -348,10 +345,8 @@ function applyMove(player, moveNumber, movePoints) {
                 } else {
                     currentHealth1 -= movePoints - defenseBlock1;
                 }
-                // console.log(` Player 2 attacked with ${movePoints} Points`);
-                // console.log(` Player 1 blocked the attack with ${defenseBlock1} Points`);
-                // console.log(` Player 1 hit with ${movePoints - defenseBlock1} Points \n `);
-                comment = ` ${user2.name} attacked with ${movePoints} Points. ${user.name} blocked ${defenseBlock1} Points of the attack `
+                
+                comment = ` ${user2.name} attaque avec ${movePoints} points. ${user.name} bloque ${defenseBlock1} points de l'attaque `
                 CommentBox.innerHTML = '';
                 i = 0;
                 typing();
@@ -399,14 +394,14 @@ function choosePokemons(pokemonName) {
     });
     if (round % 2 === 1) {
         if (firstPlayer === 1) {
-            //player
+            //joueur
 
             player1Pokemons.push(pokemon);
             indexPokemon1++;
             displayPokemonList(pokemons2);
             changeheadline(2, indexPokemon2);
         } else {
-            //player2
+            //joueur2
 
             player2Pokemons.push(pokemon);
 
@@ -416,7 +411,7 @@ function choosePokemons(pokemonName) {
         }
     } else {
         if (firstPlayer === 1) {
-            //player2
+            //joueur2
 
             player2Pokemons.push(pokemon);
 
@@ -425,7 +420,7 @@ function choosePokemons(pokemonName) {
             changeheadline(1, indexPokemon1);
 
         } else {
-            //player1
+            //joueur1
 
             player1Pokemons.push(pokemon);
 
@@ -437,7 +432,7 @@ function choosePokemons(pokemonName) {
     round++;
 
     if (pokemons1.length < 3 || pokemons2.length < 3) {
-        headline.innerText = "there is not enough pokemons matching the user profile Criterias";
+        headline.innerText = "il n'y a pas assez de pokémons correspondant à ce profil";
     }
     filterPokemonsSelected(pokemonName);
 
@@ -471,18 +466,18 @@ function choosePokemons(pokemonName) {
 function changeheadline(playerNumber, pokemonIndex) {
     if (pokemonIndex < 4) {
         if (playerNumber === 1) {
-            headline.innerText = `${user.name} choose your ${pokemonIndex} Pokemon`;
+            headline.innerText = `${user.name} ! Veillez choisir ${pokemonIndex} Pokemon`;
         } else {
-            headline.innerText = `${user2.name} choose your ${pokemonIndex} Pokemon`;
+            headline.innerText = `${user2.name} ! Veillez choisir ${pokemonIndex} Pokemon`;
         }
     }
 }
 
 function changeheadlineOnCombat(playerNumber) {
     if (playerNumber === 1) {
-        headline.innerText = `${user.name} turn`;
+        headline.innerText = `${user.name} ! Veillez choisir votre attaque/defense`;
     } else {
-        headline.innerText = `${user2.name} turn`;
+        headline.innerText = `${user2.name} ! Veillez choisir votre attaque/defense`;
     }
 }
 
@@ -552,10 +547,10 @@ function makeMoveRoundByRound(playerNumber, moveNumber, attackPoints) {
         headline.style.display = 'none';
         gameFinished.style.display = 'block';
         if (indexPokemon1 >= 3) {
-            headlineResult.innerText = `${user2.name} won the combat`;
+            headlineResult.innerText = `${user2.name} a gagné le combat`;
             saveCombat(user2.id)
         } else {
-            headlineResult.innerText = `${user.name} won the combat`;
+            headlineResult.innerText = `${user.name} a gagné le combat`;
             saveCombat(user.id)
         }
     }
@@ -611,7 +606,7 @@ function displayPokemonList(PokemonList) {
         Array.from(filteredPokemons).forEach(function (currentPokemon) {
             currentPokemon.style.display = 'none';
         });
-        headline.innerText = "there is not enough pokemons matching the user profile Criterias";
+        headline.innerText = "il n'y a pas assez de pokémons correspondant ce profil";
     } else {
         Array.from(filteredPokemons).forEach(function (currentPokemon) {
             var text = currentPokemon.getElementsByClassName('product-name');

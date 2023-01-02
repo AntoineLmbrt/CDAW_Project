@@ -63,31 +63,30 @@
 
 
 @section('content')
-    <div class="rn-breadcrumb-inner ptb--30">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-12">
-                    <h5 class="title text-center text-md-start">Combat</h5>
-                </div>
-            </div>
+    <div class="card" style="margin-left: 3.35%;margin-right: 3.35%;margin-top:9%;">
+        <div class="card-header">
+            <h3 class="card-title text-center">Combat</h3>
         </div>
-    </div>
-    <div class="rn-product-area rn-section-gapTop masonary-wrapper-activation">
+        <div class="card-body">
+            <div class="rn-product-area rn-section-gapTop masonary-wrapper-activation">
 
-        <div class="container">
-            <div class="row mb--50 align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h3 id="headline" class="title mb--0" data-sal-delay="150" data-sal="slide-up"
-                        data-sal-duration="800">Choisissez votre adversaire</h3>
+                <div class="container">
+                    <div class="row mb--50 align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12" style="padding: 2%">
+                            <h3 id="headline" class="title mb--0 text-center" data-sal-delay="150" data-sal="slide-up"
+                                data-sal-duration="800">Choisissez votre adversaire !</h3>
+                        </div>
+                    </div>
+                    @include('components.chooseUser')
+                    @include('components.battle')
+                    @include('components.chooseMode')
+                    @include('components.choosePokemon')
+                    @include('components.gameFinished')
                 </div>
             </div>
-            @include('components.chooseUser')
-            @include('components.battle')
-            @include('components.chooseMode')
-            @include('components.choosePokemon')
-            @include('components.gameFinished')
         </div>
-    </div>
+  </div>
+    
 @endsection
 
 @section('script')
@@ -100,6 +99,8 @@
         }
         console.log(user);
         var pokemons = {!! json_encode($pokemons->toArray(), JSON_HEX_TAG) !!};
+        // Un joueur ne peut jouer que les pokemons qui ont un niveau inférieur ou égal au sien
+        
         var pokemons1 = pokemons.filter(pokemon => pokemon.level <= user.level && user.energies.some(energy => pokemon.energy.name === energy.name))
 
     </script>

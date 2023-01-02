@@ -1,4 +1,3 @@
-// create the contact.blade.php file
 
 @extends('layouts.app')
 

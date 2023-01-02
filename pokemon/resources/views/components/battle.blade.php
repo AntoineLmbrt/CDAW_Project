@@ -10,23 +10,21 @@
                          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%
                     </div>
                 </div>
+                <h4>{{ auth()->user()->name}}</h4>
                 <img id="pokemonImage1" class="pokemon-image"
                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
                      alt="Charmander"/>
-                {{--                <p>--}}
-                {{--                    Type: Fire<br/>--}}
-                {{--                    Level: 5<br/>--}}
-                {{--                    Health:--}}
-                {{--                </p>--}}
+                
+                
                 <div class="moves">
-                    <h3>Choose Your Move:</h3>
+                    <h3>Choisissez votre action</h3>
                     <form>
-                        <button  type="button"  class="btn btn-primary pokemon1Buttons">Special Attack
+                        <button  type="button"  class="btn btn-primary pokemon1Buttons">Attaque spéciale
                         </button>
                         <button type="button"  class="btn btn-primary pokemon1Buttons">
-                            Special Defense
+                            Défense spéciale
                         </button>
-                        <button type="button"  class="btn btn-primary pokemon1Buttons">Attack
+                        <button type="button"  class="btn btn-primary pokemon1Buttons">Attaque
                         </button>
                     </form>
                 </div>
@@ -40,22 +38,24 @@
                          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%
                     </div>
                 </div>
+                
                 <img id="pokemonImage2" class="pokemon-image"
                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
                      alt="Squirtle"/>
+                
                 {{--                <p>--}}
                 {{--                    Type: Water<br/>--}}
                 {{--                    Level: 5<br/>--}}
                 {{--                    Health:--}}
                 {{--                </p>--}}
                 <div class="moves">
-                    <h3>Choose Your Attack:</h3>
+                    <h3>Choisissez votre action</h3>
                     <form>
-                        <button type="button"  class="btn btn-primary pokemon2Buttons">Special Attack
+                        <button type="button"  class="btn btn-primary pokemon2Buttons">Attaque spéciale
                         </button>
-                        <button type="button"  class="btn btn-primary pokemon2Buttons">Special Defense
+                        <button type="button"  class="btn btn-primary pokemon2Buttons">défense spéciale
                         </button>
-                        <button type="button"  class="btn btn-primary pokemon2Buttons">Attack
+                        <button type="button"  class="btn btn-primary pokemon2Buttons">Attaque
 
                         </button>
                     </form>

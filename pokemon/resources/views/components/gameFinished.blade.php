@@ -3,7 +3,8 @@
         <div class="col-lg-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
             <div class="section-title mb--30 text-center">
                 <h2 id="headlineResult" class="title">Quick Contact Address</h2>
-                <a href="/"><button class="btn btn-primary">Return to Home screen </button></a>
+                <a href="/"><button class="btn btn-primary">Retourner Vers la page d'accueil </button></a>
+                <a href="/combat"><button class="btn btn-primary">Relancer un combat </button></a>
             </div>
         </div>
     </div>

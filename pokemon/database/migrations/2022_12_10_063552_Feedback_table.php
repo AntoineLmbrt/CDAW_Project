@@ -34,7 +34,7 @@ class FeedbackTable extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-//            $table->integer('health');
+
             $table->timestamps();
         });
     }

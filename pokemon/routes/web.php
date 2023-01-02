@@ -28,5 +28,6 @@ Route::get('/profile', function () {
 Route::post('/contact/submit', 'App\Http\Controllers\contactController@submit')->name('contact-form');
 
 Route::get('/combat', [\App\Http\Controllers\CombatController::class, 'index'])->middleware('auth');
+Route::post('/combat', [\App\Http\Controllers\CombatController::class, 'save'])->middleware('auth');
 
 require __DIR__.'/auth.php';

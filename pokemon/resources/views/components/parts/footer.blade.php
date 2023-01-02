@@ -37,7 +37,7 @@
     </style>
 
 @endsection
-<div class="card text-center fixed" style="margin-left: 8%; margin-right:8%">
+<div class="card text-center" style="margin-left: 8%; margin-right:8%">
     <div class="card-body">
     <div class="row">
     <div class="col-sm-6">
@@ -52,7 +52,7 @@
     <div class="col-sm-6">
       <div class="card border-white">
         <div class="card-body">
-          <h5 class="card-title">Nous Réseaux sociaux</h5>
+          <h5 class="card-title">Nos Réseaux sociaux</h5>
           <p class="card-text">Suivez-nous sur nos réseaux sociaux pour être au courant de nos dernières actualités.</p>
           <div class="social-container">
             <a href="#" class="fa fa-facebook"></a>
