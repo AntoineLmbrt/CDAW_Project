@@ -1,5 +1,5 @@
 # CDAW PROJECT : Pokemon APP
-Pokemon APP is a web application that allows you to search for a pokemon, display its information and play a game with it.
+Pokémon App est un site web de jeu de pokémon, dans laquelle vous pouvez avoir votre collection pokémon et jouer avec vos amis.
 ## Installation
 Here are the steps to follow to install the project:
 - Clone the project
