@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('style')
     <style>
@@ -8,6 +8,8 @@
         .pokemon-logo {
             height: 93px;
         }
+
+        
     </style>
 @endsection
 

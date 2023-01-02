@@ -36,7 +36,7 @@ style="
             </a>
           </li>
           <li class="nav-item border-bottom border-5 border-info btn btn-outline-info p-2">
-            <a class="nav-link" href="/" >
+            <a class="nav-link" href="/contact" >
               <span class="h5">Contactez nous</span> </a>
           </li>
           @auth

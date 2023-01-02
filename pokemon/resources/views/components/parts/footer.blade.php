@@ -37,14 +37,14 @@
     </style>
 
 @endsection
-<div class="card text-center" style="margin-left: 8%; margin-right:8%">
+<div class="card text-center fixed" style="margin-left: 8%; margin-right:8%">
     <div class="card-body">
     <div class="row">
     <div class="col-sm-6">
       <div class="card border-white">
         <div class="card-body">
           <img class="navbar-brand" src="assets\img\logo\logo.png" width="200" height="124"/>
-          <h6 class="card-title">Pokémon App est site web de jeu de pokémon, dans laquelle vous pouvez avoir votre collection pokémon et jouer avec vos amis.</h6>
+          <h6 class="card-title">Pokémon App est un site web de jeu de pokémon, dans laquelle vous pouvez avoir votre collection pokémon et jouer avec vos amis.</h6>
           
         </div>
       </div>

@@ -13,21 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'App\Http\Controllers\homeController@getHome');
 
 Route::get('/pokedex', 'App\Http\Controllers\pokedexController@getPokedex');
+// contact page route
+Route::get('/contact', 'App\Http\Controllers\contactController@getContact');
 
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/profile', function () {
+    return view('profile');
 })->middleware(['auth'])->name('dashboard');
 
-//Combat route
+
+Route::post('/contact/submit', 'App\Http\Controllers\contactController@submit')->name('contact-form');
+
 Route::get('/combat', [\App\Http\Controllers\CombatController::class, 'index'])->middleware('auth');
 
 require __DIR__.'/auth.php';
