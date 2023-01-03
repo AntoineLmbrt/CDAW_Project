@@ -1,0 +1,52 @@
+#battleSelect {
+    background-size: 100%;
+    background-position: center;
+}
+
+.pokemon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-image {
+    width: 150px;
+    height: 150px;
+}
+
+.progress {
+    border-radius: 10px;
+    background-color: #ab4f4f;
+    width: 70%;
+    height:2rem;
+    margin-left: 15%;
+    margin-bottom: 25%
+}
+
+#battleSelect{
+    height: 40rem;
+    display: none !important;
+}
+
+tr {
+    cursor: pointer;
+}
+
+.progressContent{
+    position: relative;
+    left: 100px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#comment {
+    top: 40px;
+    position: relative;
+    background-color: lightgray;
+    width: 80%;
+    left: 20px;
+    height: 200px;
+    padding: 10px;
+    font: 1.4em/1.6em cursive;
+    color: gray;
+}
