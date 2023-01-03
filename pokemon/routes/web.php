@@ -20,9 +20,11 @@ Route::get('/pokedex', 'App\Http\Controllers\pokedexController@getPokedex');
 Route::get('/contact', 'App\Http\Controllers\contactController@getContact');
 
 
-Route::get('/profile', function () {
-    return view('profile');
-})->middleware(['auth'])->name('dashboard');
+// Profile
+Route::middleware('auth')->group(function () {
+    Route::view('profile', 'profile');
+    Route::name('profile')->put('profile', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'update']);
+});
 
 
 Route::post('/contact/submit', 'App\Http\Controllers\contactController@submit')->name('contact-form');

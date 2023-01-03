@@ -17,7 +17,8 @@
             font-weight: bold;
         }
         .profile-user{
-            margin-bottom: 200px;
+            margin-bottom: 3%;
+            margin-top: 10%;
         }
     </style>
 
@@ -29,41 +30,77 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Profile</h1>
+                        <h1>Profil</h1>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <table class="table-user">
-                                
-                                    <tr>
-                                        <td>Username</td>
-                                        <td>{{auth()->user()->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>{{auth()->user()->email}}</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>Level</td>
-                                        <td>{{auth()->user()->level}}</td>
-                                    <tr>
-                                        <td>Created at</td>
-                                        <td>{{auth()->user()->created_at}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Updated at</td>
-                                        <td>{{auth()->user()->updated_at}}</td>
-                                    </tr>
-                                </table>
+                        <form class="h-add-bottom" method="POST" action="/profile">
+                            @csrf
+                            @method('PUT')
+                            
+                            <!-- Name -->
+                            <div class="mb-3 row">
+                              <label class="col-sm-2 col-form-label" for="name"><span class="h5">@lang('Name')</span></label>
+                              <div class="col-sm-10">  
+                              <input 
+                                  id="name" 
+                                  class="h-full-width h5" 
+                                  type="text" 
+                                  name="name" 
+                                  placeholder="@lang('Your name')" 
+                                  value="{{ old('name', auth()->user()->name) }}" 
+                                  required 
+                                  autofocus>
+                              </div>
+                            </div>
+                            <!-- Email Address -->
+                             <div class="mb-3 row">
+                              <label class="col-sm-2 col-form-label" for="email"><span class="h5">@lang('Email')</span></label>
+                              <div class="col-sm-10">   
+                              <input 
+                                  id="email" 
+                                  class="h-full-width h5" 
+                                  type="email" 
+                                  name="email" 
+                                  placeholder="@lang('Your email')" 
+                                  value="{{ old('email', auth()->user()->email) }}" 
+                                  required>
+                              </div>
                             </div>
                             
-                            
-                            <div class="col-md-8">
-                                
+                            <!-- Password -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="password"><span class="h5">@lang('Mot de passe') (@lang('optional'))</span></label>
+                                <div class="col-sm-10">
+                                <input 
+                                    id="password" 
+                                    class="h-full-width h5" 
+                                    type="password" 
+                                    name="password" 
+                                    placeholder="@lang('password')">
+                                </div>
                             </div>
-                        </div>
+                            
+                            <!-- Confirm Password -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="password_confirmation"><span class="h5">@lang('Confirmez le mot de passe')</span></label> 
+                                <div class="col-sm-10">
+                                <input 
+                                    id="password_confirmation" 
+                                    class="h-full-width h5" 
+                                    type="password" 
+                                    name="password_confirmation" 
+                                    placeholder="@lang('Confirmez le password')">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="d-grid gap-2 col-4 " style="margin-left: 2%">
+                                    <button type="submit" class="border-bottom border-5 border-success btn btn-outline-success h5">
+                                        @lang('Enregistrer')
+                                    </button>
+                                </div>
+                            </div>
+                             
+                        </form>
                     </div>
                 </div>
             </div>
