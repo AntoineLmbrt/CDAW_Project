@@ -8,7 +8,6 @@
 @endsection
 
 @section('content')
-    <h1>POKEDEX</h1>
     <div id="datatable" style="margin-left: 3.35%;margin-right: 3.35%;">
         <table id="pokedex" class="display">
             <thead>
