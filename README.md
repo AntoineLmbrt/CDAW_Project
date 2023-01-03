@@ -23,11 +23,6 @@ php artisan migrate
 php artisan db:seed --class=EnergySeeder
 php artisan db:seed --class=PokemonSeeder
 ```
-- Install the dependencies with npm
-```bash
-npm install
-npm run dev
-```
 - Run the Project
 ```bash
 php artisan serve
