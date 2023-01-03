@@ -8,7 +8,8 @@ git clone https://github.com/AntoineLmbrt/CDAW_Project.git
 ```
 - Make sure you are in the project directory Pokemon
 ```bash
-cd Pokemon
+cd CDAW_Project
+cd pokemon
 ```
 - Install the dependencies with composer
 ```bash
