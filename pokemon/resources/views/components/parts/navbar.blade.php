@@ -45,7 +45,7 @@ style="
                 <span class="h6">{{auth()->user()->name}}</span> </a>
             </a>  
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                <li><a class="dropdown-item" href="/profile">Profil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="/profile"><form action="/logout" method="POST">
                     @csrf

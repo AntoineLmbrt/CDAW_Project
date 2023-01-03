@@ -13,12 +13,15 @@ class ContactController extends Controller
     }
 
     public function submit(Request $request){
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required'
-        ]); 
+        if($request->user()) {
+            $request->merge([
+                'user_id' => $request->user()->id,
+                'name'    => $request->user()->name,
+                'email'   => $request->user()->email,
+            ]);
+        }
         Contact::create ($request->all());
-
         return back()->with ('status', __('Your message has been recorded, we will respond as soon as possible.'));
-    }
 }
+    
+    }

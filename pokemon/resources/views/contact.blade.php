@@ -1,4 +1,5 @@
 
+
 @extends('layouts.app')
 
 
@@ -42,10 +43,41 @@
                 <h1 style="color: aliceblue">Envoyez votre meesage</h1>
                 <form action="/contact/submit" method="post">
                     @csrf
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="Email">
-                    <textarea name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                    <button type="submit">Envoyer</button>
+                    <fieldset>
+                        @if(Auth::guest())
+                            <!-- Name -->
+                            <div>
+                              <label for="name">@lang('Psoudp')</label>  
+                              <input 
+                                  id="name" 
+                                  class="h-full-width" 
+                                  type="text" 
+                                  name="name" 
+                                  placeholder="@lang('votre psoudp')" 
+                                  value="{{ old('name') }}" 
+                                  required 
+                                  autofocus>
+                            </div>
+                            <!-- Email Address -->
+                            <div>
+                              <label for="email">@lang('Email')</label>  
+                              <input 
+                                  id="email" 
+                                  class="h-full-width" 
+                                  type="email" 
+                                  name="email" 
+                                  placeholder="@lang('Your email')" 
+                                  value="{{ old('email') }}" 
+                                  required>
+                            </div>
+                            
+                        @endif
+                        <!-- Message -->                          
+                        <label for="message">@lang('Your Message')</label> 
+                        <textarea name="message" id="message" class="h-full-width" placeholder="@lang('Votre Message')" required>{{ old('message') }}</textarea>                          
+                        <br>
+                        <button type="submit" class="border-bottom border-5 border-warning btn btn-secondary btn-outline-warning"><span class="h5"> @lang('Envoyer') </span></button>
+                    </fieldset>
                 </form>
             </div>
         </div>
